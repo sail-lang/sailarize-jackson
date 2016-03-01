@@ -1,0 +1,1 @@
+FasterXML support for Sailarize
