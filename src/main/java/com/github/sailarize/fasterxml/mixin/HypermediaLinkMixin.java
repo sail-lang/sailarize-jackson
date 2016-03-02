@@ -10,7 +10,8 @@ import com.github.sailarize.fasterxml.serializer.HeaderJsonSerializer;
 import com.github.sailarize.link.HypermediaLink;
 
 /**
- * A Mixin for configuring a {@link HypermediaLink} with FasterXml features.
+ * A Mixin that holds the serialization configuration for {@link HypermediaLink}
+ * with FasterXml features.
  * 
  * @author agusmunioz
  *

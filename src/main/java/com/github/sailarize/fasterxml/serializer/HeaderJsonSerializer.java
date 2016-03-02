@@ -28,12 +28,15 @@ public class HeaderJsonSerializer extends JsonSerializer<Map<String, String>> {
 
 		gen.writeStartArray();
 
-		for (Entry<String, String> header : headers.entrySet()) {
+		if (headers != null) {
+			
+			for (Entry<String, String> header : headers.entrySet()) {
 
-			gen.writeStartObject();
-			gen.writeStringField(NAME, header.getKey());
-			gen.writeStringField(VALUE, header.getValue());
-			gen.writeEndObject();
+				gen.writeStartObject();
+				gen.writeStringField(NAME, header.getKey());
+				gen.writeStringField(VALUE, header.getValue());
+				gen.writeEndObject();
+			}
 		}
 
 		gen.writeEndArray();
