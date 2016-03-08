@@ -1,1 +1,1 @@
-FasterXML support for Sailarize
+Jacson support for Sailarize
