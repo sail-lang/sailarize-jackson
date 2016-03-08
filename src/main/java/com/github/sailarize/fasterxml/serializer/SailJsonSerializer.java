@@ -50,7 +50,7 @@ public class SailJsonSerializer extends JsonSerializer<SailResource> {
 	}
 
 	/**
-	 * Serializes the resource without Hypermedia controls.
+	 * Serializes the resource without Hypermedia controls in an unwrapped way.
 	 * 
 	 * @param resource
 	 *            the resource.
@@ -72,7 +72,7 @@ public class SailJsonSerializer extends JsonSerializer<SailResource> {
 	 * Serializes Hypermedia controls.
 	 * 
 	 * @param resource
-	 *            the Sail resource.
+	 *            the Sail resource with Hypermedia controls.
 	 * 
 	 * @param jgenerator
 	 *            the generator for adding Hypermedia controls.

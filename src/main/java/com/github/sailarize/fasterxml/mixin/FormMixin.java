@@ -9,8 +9,7 @@ import com.github.sailarize.fasterxml.serializer.HeaderJsonSerializer;
 import com.github.sailarize.form.Form;
 
 /**
- * A Mixin that holds the serialization configuration for {@link Form} with
- * FasterXml.
+ * A Mixin that holds the FasterXml serialization configuration for {@link Form}.
  * 
  * @author agusmunioz
  *
