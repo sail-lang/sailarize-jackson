@@ -11,7 +11,7 @@ import com.github.sailarize.link.HypermediaLink;
 import com.github.sailarize.resource.SailResource;
 
 /**
- * A Mixin that holds the FasterXml serialization configuration for
+ * A Mixin that holds the Jackson serialization configuration for
  * {@link SailResource}. Hypermedia controls are {@link JsonIgnore}d as
  * {@link SailJsonSerializer} performs a custom serialization.
  * 

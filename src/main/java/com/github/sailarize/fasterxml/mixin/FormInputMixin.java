@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.github.sailarize.form.FormInput;
 
 /**
- * A Mixin that holds the FasterXml serialization configuration for {@link FormInput}.
+ * A Mixin that holds the Jackson serialization configuration for {@link FormInput}.
  * 
  * @author agusmunioz
  *
