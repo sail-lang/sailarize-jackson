@@ -1,1 +1,1 @@
-Jacson support for Sailarize
+Jackson support for Sailarize
