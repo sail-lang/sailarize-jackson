@@ -2,19 +2,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.sail-api</groupId>
-	<artifactId>sailarize-fasterxml</artifactId>
+	<artifactId>sailarize-jackson</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Sailarize FasterXML</name>
-	<description>Serializer for Sail resources based on FasterXML</description>
-	<url>http://maven.apache.org</url>
+	<name>Sailarize Jackson Support</name>
+	<description>Jackson support for Sailarize library</description>
+	<url>https://github.com/agusmunioz/sailarize-jackson</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<jackson.version>2.6.1</jackson.version>
 	</properties>
-
 
 	<developers>
 		<developer>
