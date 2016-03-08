@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.BeanSerializer;
 import com.fasterxml.jackson.databind.util.NameTransformer;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.link.HypermediaLink;
@@ -22,16 +23,16 @@ import com.github.sailarize.resource.SailTags;
  */
 public class SailJsonSerializer extends JsonSerializer<SailResource> {
 
-	private JsonSerializer<Object> defaultSerializer;
+	private BeanSerializer defaultSerializer;
 
 	/**
 	 * Creates an initialized {@link SailJsonSerializer}.
 	 * 
 	 * @param serializer
-	 *            a object default serializer for serializing the resource
-	 *            without Hypermedia controls.
+	 *            a bean default serializer for serializing the resource without
+	 *            Hypermedia controls.
 	 */
-	public SailJsonSerializer(JsonSerializer<Object> serializer) {
+	public SailJsonSerializer(BeanSerializer serializer) {
 		this.defaultSerializer = serializer;
 	}
 
@@ -63,13 +64,12 @@ public class SailJsonSerializer extends JsonSerializer<SailResource> {
 	private void resource(SailResource resource, JsonGenerator jgenerator, SerializerProvider serializers)
 			throws IOException {
 
-		this.defaultSerializer.unwrappingSerializer(NameTransformer.simpleTransformer(null, null)).serialize(resource,
-				jgenerator, serializers);
+		this.defaultSerializer.unwrappingSerializer(NameTransformer.NOP).serialize(resource, jgenerator, serializers);
 
 	}
 
 	/**
-	 * Serializes the Hypermedia controls.
+	 * Serializes Hypermedia controls.
 	 * 
 	 * @param resource
 	 *            the Sail resource.

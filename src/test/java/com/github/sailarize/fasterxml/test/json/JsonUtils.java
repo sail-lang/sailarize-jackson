@@ -21,9 +21,9 @@ public class JsonUtils {
 
 	private static final String JSON_FOLDER = "/com/github/sailarize/fasterxml/serializer/";
 
-	private static JsonFactory FACTORY = new JsonFactory();
+	private final static JsonFactory FACTORY = new JsonFactory();
 
-	private static ObjectMapper MAPPER = new ObjectMapper();
+	private final static ObjectMapper MAPPER = new ObjectMapper();
 
 	static {
 
@@ -84,7 +84,10 @@ public class JsonUtils {
 
 		try {
 
-			return FACTORY.createGenerator(new StringWriter());
+			JsonGenerator gen = FACTORY.createGenerator(new StringWriter());
+			gen.setCodec(MAPPER);
+			
+			return gen;
 
 		} catch (IOException e) {
 			return null;

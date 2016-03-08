@@ -10,6 +10,12 @@ public class PersonMock extends SailResource {
 
 	private Integer age;
 
+	public PersonMock(String id,String name, Integer age) {
+		super(id);
+		this.name = name;
+		this.age = age;
+	}
+
 	public String getName() {
 		return name;
 	}
