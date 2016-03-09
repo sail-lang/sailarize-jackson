@@ -9,12 +9,6 @@
 	<description>Jackson support for Sailarize library</description>
 	<url>https://github.com/agusmunioz/sailarize-jackson</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<sailarize.version>1.0-SNAPSHOT</sailarize.version>
-		<jackson.version>2.7.0</jackson.version>
-	</properties>
 
 	<developers>
 		<developer>
@@ -23,6 +17,20 @@
 			<url>https://github.com/agusmunioz</url>
 		</developer>
 	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<sailarize.version>1.0-SNAPSHOT</sailarize.version>
+		<jackson.version>2.7.0</jackson.version>
+	</properties>
+
+	<scm>
+		<url>https://github.com/agusmunioz/sailarize-jackson</url>
+		<connection>scm:git:git://github.com/agusmunioz/sailarize-jackson.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/despegar/cp-ui.git</developerConnection>
+		<tag>master</tag>
+	</scm>
 
 	<dependencies>
 		<dependency>
