@@ -4,49 +4,49 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Map.Entry;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.ser.BeanSerializer;
-import com.fasterxml.jackson.databind.util.NameTransformer;
+import com.fasterxml.jackson.databind.ser.std.BeanSerializerBase;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.link.HypermediaLink;
 import com.github.sailarize.resource.SailResource;
 import com.github.sailarize.resource.SailTags;
 
 /**
- * Sail resources serializer based on {@link JsonSerializer}
+ * Sail resources serializer based on {@link BeanSerializerBase}. It performs a
+ * special serialization of Hypermedia controls after serializing the resource's
+ * regular fields.
  * 
  * @author agusmunioz
  *
  */
-public class SailJsonSerializer extends JsonSerializer<SailResource> {
-
-	private BeanSerializer defaultSerializer;
+public class SailResourceSerializer extends BeanSerializerAdapter {
 
 	/**
-	 * Creates an initialized {@link SailJsonSerializer}.
-	 * 
-	 * @param serializer
-	 *            a bean default serializer for serializing the resource without
-	 *            Hypermedia controls.
+	 * Default Serial id
 	 */
-	public SailJsonSerializer(BeanSerializer serializer) {
-		this.defaultSerializer = serializer;
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Creates an intialized {@link SailResourceSerializer}.
+	 * 
+	 * @param source
+	 */
+	public SailResourceSerializer(BeanSerializerBase source) {
+		super(source);
 	}
 
-	@Override
-	public void serialize(SailResource resource, JsonGenerator jgenerator, SerializerProvider serializers)
-			throws IOException, JsonProcessingException {
+	public void serialize(Object resource, JsonGenerator jgen, SerializerProvider provider)
+			throws IOException, JsonGenerationException {
 
-		jgenerator.writeStartObject();
+		jgen.writeStartObject();
 
-		this.resource(resource, jgenerator, serializers);
+		this.resource(resource, jgen, provider);
 
-		this.hypermedia(resource, jgenerator);
+		this.hypermedia((SailResource) resource, jgen);
 
-		jgenerator.writeEndObject();
+		jgen.writeEndObject();
 	}
 
 	/**
@@ -61,10 +61,9 @@ public class SailJsonSerializer extends JsonSerializer<SailResource> {
 	 * @throws IOException
 	 *             if there is a problem when serializing.
 	 */
-	private void resource(SailResource resource, JsonGenerator jgenerator, SerializerProvider serializers)
-			throws IOException {
+	private void resource(Object resource, JsonGenerator jgen, SerializerProvider provider) throws IOException {
 
-		this.defaultSerializer.unwrappingSerializer(NameTransformer.NOP).serialize(resource, jgenerator, serializers);
+		this.serializeFields(resource, jgen, provider);
 
 	}
 

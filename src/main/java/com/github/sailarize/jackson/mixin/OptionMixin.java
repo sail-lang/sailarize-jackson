@@ -2,21 +2,19 @@ package com.github.sailarize.jackson.mixin;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.github.sailarize.form.ValueInput;
+import com.github.sailarize.form.Option;
 
 /**
  * A Mixin that holds the Jackson serialization configuration for
- * {@link ValueInput}.
+ * {@link Option}.
  * 
  * @author agusmunioz
  *
  */
-public interface FormInputMixin {
+public interface OptionMixin {
 
 	@JsonInclude(Include.NON_NULL)
-	String getId();
+	String getTitle();
 
-	@JsonInclude(Include.NON_NULL)
-	String getMask();
 
 }
