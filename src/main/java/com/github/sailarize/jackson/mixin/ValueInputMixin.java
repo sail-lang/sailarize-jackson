@@ -11,7 +11,7 @@ import com.github.sailarize.form.ValueInput;
  * @author agusmunioz
  *
  */
-public interface FormInputMixin {
+public interface ValueInputMixin {
 
 	@JsonInclude(Include.NON_NULL)
 	String getId();

@@ -5,14 +5,16 @@ package com.github.sailarize.jackson.config;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.form.FormInput;
+import com.github.sailarize.form.MultilectInput;
 import com.github.sailarize.form.Option;
-import com.github.sailarize.form.SelectInput;
-import com.github.sailarize.jackson.mixin.FormInputMixin;
+import com.github.sailarize.form.SingleSelectInput;
 import com.github.sailarize.jackson.mixin.FormMixin;
 import com.github.sailarize.jackson.mixin.HypermediaLinkMixin;
+import com.github.sailarize.jackson.mixin.MultilectInputMixin;
 import com.github.sailarize.jackson.mixin.OptionMixin;
 import com.github.sailarize.jackson.mixin.SailResourceMixIn;
-import com.github.sailarize.jackson.mixin.SelectInputMixin;
+import com.github.sailarize.jackson.mixin.SingleSelectInputMixin;
+import com.github.sailarize.jackson.mixin.ValueInputMixin;
 import com.github.sailarize.link.HypermediaLink;
 import com.github.sailarize.resource.SailResource;
 
@@ -39,8 +41,9 @@ public class SailSimpleModule extends SimpleModule {
 		context.setMixInAnnotations(SailResource.class, SailResourceMixIn.class);
 		context.setMixInAnnotations(HypermediaLink.class, HypermediaLinkMixin.class);
 		context.setMixInAnnotations(Form.class, FormMixin.class);
-		context.setMixInAnnotations(FormInput.class, FormInputMixin.class);
-		context.setMixInAnnotations(SelectInput.class, SelectInputMixin.class);
+		context.setMixInAnnotations(FormInput.class, ValueInputMixin.class);
+		context.setMixInAnnotations(SingleSelectInput.class, SingleSelectInputMixin.class);
+		context.setMixInAnnotations(MultilectInput.class, MultilectInputMixin.class);
 		context.setMixInAnnotations(Option.class, OptionMixin.class);
 		
 		context.addBeanSerializerModifier(new SailBeanSerializerModifier());
