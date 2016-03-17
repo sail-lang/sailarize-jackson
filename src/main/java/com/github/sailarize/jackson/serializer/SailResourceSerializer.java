@@ -10,6 +10,8 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.BeanSerializerBase;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.link.HypermediaLink;
+import com.github.sailarize.media.Image;
+import com.github.sailarize.media.Video;
 import com.github.sailarize.resource.SailResource;
 import com.github.sailarize.resource.SailTags;
 
@@ -85,13 +87,37 @@ public class SailResourceSerializer extends BeanSerializerAdapter {
 			jgenerator.writeObjectField(SailTags.META, resource.getMeta());
 		}
 
-		for (Entry<String, Collection<HypermediaLink>> links : resource.getLinks().entrySet()) {
-			jgenerator.writeObjectField(links.getKey(), links.getValue());
+		if (resource.getLinks() != null) {
+			for (Entry<String, Collection<HypermediaLink>> links : resource.getLinks().entrySet()) {
+				jgenerator.writeObjectField(links.getKey(), links.getValue());
+			}
 		}
-
+		
 		if (resource.getForms() != null) {
 			for (Entry<String, Collection<Form>> forms : resource.getForms().entrySet()) {
 				jgenerator.writeObjectField(forms.getKey(), forms.getValue());
+			}
+		}
+
+		if (resource.getImages() != null) {
+			for (Entry<String, Collection<Image>> images : resource.getImages().entrySet()) {
+				jgenerator.writeFieldName(images.getKey());
+				jgenerator.writeStartArray();
+				for (Image image : images.getValue()) {
+					jgenerator.writeObject(image.getLink());
+				}
+				jgenerator.writeEndArray();
+			}
+		}
+
+		if (resource.getVideos() != null) {
+			for (Entry<String, Collection<Video>> videos : resource.getVideos().entrySet()) {
+				jgenerator.writeFieldName(videos.getKey());
+				jgenerator.writeStartArray();
+				for (Video video : videos.getValue()) {
+					jgenerator.writeObject(video.getLink());
+				}
+				jgenerator.writeEndArray();
 			}
 		}
 	}

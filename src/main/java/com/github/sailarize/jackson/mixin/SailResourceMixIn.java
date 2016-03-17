@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.jackson.serializer.SailResourceSerializer;
 import com.github.sailarize.link.HypermediaLink;
+import com.github.sailarize.media.Image;
+import com.github.sailarize.media.Video;
 import com.github.sailarize.resource.SailResource;
 
 /**
@@ -32,5 +34,11 @@ public interface SailResourceMixIn {
 
 	@JsonIgnore
 	Map<String, Collection<Form>> getForms();
+
+	@JsonIgnore
+	Map<String, Collection<Image>> getImages();
+	
+	@JsonIgnore
+	Map<String, Collection<Video>> getVideos();
 
 }
