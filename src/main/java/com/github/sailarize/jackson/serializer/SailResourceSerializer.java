@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.fasterxml.jackson.databind.ser.std.BeanSerializerBase;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.link.HypermediaLink;
@@ -51,6 +52,13 @@ public class SailResourceSerializer extends BeanSerializerAdapter {
 		jgen.writeEndObject();
 	}
 
+	@Override
+	public void serializeWithType(Object bean, JsonGenerator gen, SerializerProvider provider, TypeSerializer typeSer)
+			throws IOException {
+
+		this.serialize(bean, gen, provider);
+	}
+
 	/**
 	 * Serializes the resource without Hypermedia controls in an unwrapped way.
 	 * 
@@ -92,7 +100,7 @@ public class SailResourceSerializer extends BeanSerializerAdapter {
 				jgenerator.writeObjectField(links.getKey(), links.getValue());
 			}
 		}
-		
+
 		if (resource.getForms() != null) {
 			for (Entry<String, Collection<Form>> forms : resource.getForms().entrySet()) {
 				jgenerator.writeObjectField(forms.getKey(), forms.getValue());
