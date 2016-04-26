@@ -5,19 +5,19 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.github.sailarize.form.MultilectInput;
+import com.github.sailarize.form.MultiSelectInput;
 import com.github.sailarize.form.Option;
 
 /**
  * A Mixin that holds the Jackson serialization configuration for
- * {@link MultilectInput}.
+ * {@link MultiSelectInput}.
  * 
  * @author agusmunioz
  *
  */
 @JsonInclude(Include.NON_NULL)
-public interface MultilectInputMixin {
+public interface MultiSelectInputMixin {
 
-	@JsonProperty("multilect")
+	@JsonProperty("multiselect")
 	Collection<Option> getOptions();
 }
