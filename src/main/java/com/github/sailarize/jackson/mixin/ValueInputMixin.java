@@ -18,5 +18,8 @@ public interface ValueInputMixin {
 
 	@JsonInclude(Include.NON_NULL)
 	String getMask();
+	
+	@JsonInclude(Include.NON_NULL)
+	String getTitle();
 
 }

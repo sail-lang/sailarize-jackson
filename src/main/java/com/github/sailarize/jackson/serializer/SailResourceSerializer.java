@@ -50,9 +50,9 @@ public class SailResourceSerializer extends BeanSerializerAdapter {
 		this.hypermedia((SailResource) resource, jgen);
 
 		jgen.writeEndObject();
+
 	}
 
-	@Override
 	public void serializeWithType(Object bean, JsonGenerator gen, SerializerProvider provider, TypeSerializer typeSer)
 			throws IOException {
 
@@ -97,13 +97,23 @@ public class SailResourceSerializer extends BeanSerializerAdapter {
 
 		if (resource.getLinks() != null) {
 			for (Entry<String, Collection<HypermediaLink>> links : resource.getLinks().entrySet()) {
-				jgenerator.writeObjectField(links.getKey(), links.getValue());
+				jgenerator.writeFieldName(links.getKey());
+				jgenerator.writeStartArray();
+				for (HypermediaLink link : links.getValue()) {
+					jgenerator.writeObject(link);
+				}
+				jgenerator.writeEndArray();
 			}
 		}
 
 		if (resource.getForms() != null) {
 			for (Entry<String, Collection<Form>> forms : resource.getForms().entrySet()) {
-				jgenerator.writeObjectField(forms.getKey(), forms.getValue());
+				jgenerator.writeFieldName(forms.getKey());
+				jgenerator.writeStartArray();
+				for (Form form : forms.getValue()) {
+					jgenerator.writeObject(form);
+				}
+				jgenerator.writeEndArray();
 			}
 		}
 
@@ -128,6 +138,7 @@ public class SailResourceSerializer extends BeanSerializerAdapter {
 				jgenerator.writeEndArray();
 			}
 		}
+
 	}
 
 }
