@@ -16,5 +16,7 @@ public interface OptionMixin {
 	@JsonInclude(Include.NON_NULL)
 	String getTitle();
 
+	@JsonInclude(Include.NON_NULL)
+	Boolean getSelected();
 
 }
