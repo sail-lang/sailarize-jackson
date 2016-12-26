@@ -3,11 +3,13 @@ package com.github.sailarize.jackson.config;
 
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.github.sailarize.form.CloneSelectInput;
 import com.github.sailarize.form.Form;
 import com.github.sailarize.form.FormInput;
 import com.github.sailarize.form.MultiSelectInput;
 import com.github.sailarize.form.Option;
 import com.github.sailarize.form.SingleSelectInput;
+import com.github.sailarize.jackson.mixin.CloneSelectInputMixin;
 import com.github.sailarize.jackson.mixin.FormMixin;
 import com.github.sailarize.jackson.mixin.HypermediaLinkMixin;
 import com.github.sailarize.jackson.mixin.MultiSelectInputMixin;
@@ -44,6 +46,7 @@ public class SailSimpleModule extends SimpleModule {
 		context.setMixInAnnotations(FormInput.class, ValueInputMixin.class);
 		context.setMixInAnnotations(SingleSelectInput.class, SingleSelectInputMixin.class);
 		context.setMixInAnnotations(MultiSelectInput.class, MultiSelectInputMixin.class);
+		context.setMixInAnnotations(CloneSelectInput.class, CloneSelectInputMixin.class);
 		context.setMixInAnnotations(Option.class, OptionMixin.class);
 		
 		context.addBeanSerializerModifier(new SailBeanSerializerModifier());
