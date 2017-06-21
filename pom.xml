@@ -4,7 +4,7 @@
 	<groupId>com.github.sail-api</groupId>
 	<artifactId>sailarize-jackson</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.B26</version>
+	<version>1.0.B30</version>
 	<name>Sailarize Jackson Support</name>
 	<description>Jackson support for Sailarize library</description>
 	<url>https://github.com/agusmunioz/sailarize-jackson</url>
@@ -21,7 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<sailarize.version>1.0.B26</sailarize.version>
+		<sailarize.version>1.0.B30</sailarize.version>
 		<jackson.version>2.7.1</jackson.version>
 	</properties>
 
@@ -107,5 +107,4 @@
 				<goals> <goal>jar</goal> </goals> </execution> </executions> </plugin> -->
 		</plugins>
 	</build>
-	
 </project>
