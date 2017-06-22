@@ -4,7 +4,7 @@
 	<groupId>com.github.sail-api</groupId>
 	<artifactId>sailarize-jackson</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.B30</version>
+	<version>1.0.B31</version>
 	<name>Sailarize Jackson Support</name>
 	<description>Jackson support for Sailarize library</description>
 	<url>https://github.com/agusmunioz/sailarize-jackson</url>
