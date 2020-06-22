@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<sailarize.version>1.0.B53</sailarize.version>
-		<jackson.version>2.7.1</jackson.version>
+		<jackson.version>2.11.0</jackson.version>
 	</properties>
 
 	<scm>
